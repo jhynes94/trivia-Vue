@@ -31,6 +31,10 @@
     app.answers = app.answersData[randomQuestion];
 
     function selected(input) {
+        if(input === app.answersData[randomQuestion][0]){
+            console.log("CORRECT!")
+        }
+        else console.log("INCORRECT!");
         console.log(input)
     }
 
