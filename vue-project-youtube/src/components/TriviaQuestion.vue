@@ -56,6 +56,7 @@ export default {
   },
   methods: {
     selected: function(input) {
+      //console.log("Input Answer: " + input + "\nCorrect Answer: " + this.answersData[this.randomQuestion][0] + "\nRandom Question #: " + this.randomQuestion)
       if (input === this.answersData[this.randomQuestion][0]) {
         console.log("CORRECT!")
         this.Correct = "Nice! It was " + input;
@@ -69,6 +70,7 @@ export default {
   },
   created: function() {
     var randomQuestion = Math.floor(Math.random() * this.questions.length);
+    this.randomQuestion = randomQuestion;
     this.question = this.questions[randomQuestion];
     this.answers = this.answersData[randomQuestion];
 
