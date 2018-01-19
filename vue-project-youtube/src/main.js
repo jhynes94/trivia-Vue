@@ -7,7 +7,10 @@ import router from './router'
 require('../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss')
 import BootstrapVue from 'bootstrap-vue'
 Vue.use(BootstrapVue);
-//end New
+
+import vueResource from 'vue-resource'
+Vue.use(vueResource)
+//end New 
 
 Vue.config.productionTip = false
 

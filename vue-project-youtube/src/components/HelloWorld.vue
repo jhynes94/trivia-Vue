@@ -80,8 +80,9 @@
         </a>
       </li>
     </ul>
+    <h3><button type="button" class="btn btn-primary" style="margin: 10px" @click="getData()"><h3 style="margin: 10px">Console Log Data</h3></button></h3>
 
-      <h2><a href="#/question" target="_blank">Current Vue Project</a></h2>
+      <h2><router-link to="/question">Current project</router-link></h2>
   </div>
 </template>
 
@@ -90,7 +91,16 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      messageFromServer: ''
+    }
+  },
+  methods: {
+    getData: function(){
+      this.$http.get('http://localhost:3000/quotes')
+        .then(function(response){
+          console.log(response)
+        })
     }
   }
 }
