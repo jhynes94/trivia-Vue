@@ -15,8 +15,9 @@ module.exports = function (app) {
         })
     })
 
-    
-    
+    app.get('/hero', function (req, res) {
+        res.send('hello world')
+      })
 
     app.post('/quotes', (req, res) => {
         db.collection('quotes').save(req.body, (err, result) => {
@@ -28,7 +29,7 @@ module.exports = function (app) {
         })
     })
 
-    app.get('/', (req, res) => {
+    app.get('/quotes', (req, res) => {
         var cursor = db.collection('quotes').find()
 
         db.collection('quotes').find().toArray(function (err, results) {

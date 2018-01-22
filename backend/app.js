@@ -4,6 +4,10 @@ module.exports = function (app) {
     var basicModels = require("./basicModels.js");
     basicModels(app);
 
+    //trivia game
+    var triviaModels = require("./trivia.js");
+    triviaModels(app);
+
     //Call and Responce Basic
     app.get("/say/:message", function (req, res) {
         var msg = req.params["message"];

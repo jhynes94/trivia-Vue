@@ -5,7 +5,7 @@ const app = express()
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/vue-project-youtube/dist'));
 
 var project = require('./backend/app.js');
 project(app);

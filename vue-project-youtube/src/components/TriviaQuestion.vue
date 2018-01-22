@@ -50,30 +50,40 @@ export default {
       question: "",
       answers: "",
       Incorrect: "",
-      Correct: "",
-      randomQuestion: 1
+      Correct: ""
     };
   },
   methods: {
     selected: function(input) {
-      //console.log("Input Answer: " + input + "\nCorrect Answer: " + this.answersData[this.randomQuestion][0] + "\nRandom Question #: " + this.randomQuestion)
-      if (input === this.answersData[this.randomQuestion][0]) {
-        console.log("CORRECT!")
-        this.Correct = "Nice! It was " + input;
-        this.Incorrect = "";
-      } else {  
-        console.log("INCORRECT!");
-        this.Correct = "";
-        this.Incorrect = "Nope! It was " + this.answersData[this.randomQuestion][0];
-      }
+      this.$http
+        .post("http://localhost:3000/submission", {answer: input})
+        .then(function(response) {
+          console.log(response);
+
+          if (response.body.message === true) {
+            console.log("CORRECT!");
+            this.Correct = "Nice! It was " + input;
+            this.Incorrect = "";
+            this.getData(); //refresh page with new question
+          } else {
+            console.log("INCORRECT!");
+            this.Correct = "";
+            this.Incorrect =
+              "Nope! It was somthing else";
+          }
+        });
+    },
+    getData: function() {
+      this.$http.get("http://localhost:3000/qna").then(function(response) {
+        console.log(response);
+
+        this.question = response.body.question;
+        this.answers = response.body.answers;
+      });
     }
   },
   created: function() {
-    var randomQuestion = Math.floor(Math.random() * this.questions.length);
-    this.randomQuestion = randomQuestion;
-    this.question = this.questions[randomQuestion];
-    this.answers = this.answersData[randomQuestion];
-
+    this.getData();
   }
 };
 </script>
