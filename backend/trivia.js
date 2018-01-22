@@ -45,6 +45,7 @@ module.exports = function (app) {
 
         var ranAnswers = fakeAnswer[questionIterator].concat(trueAnswer[questionIterator]);
         ranAnswers = shuffle(ranAnswers);
+        console.log("Sent: " + ranAnswers);
 
         var response = {
             "question": question[questionIterator],
@@ -70,9 +71,12 @@ module.exports = function (app) {
 
     app.post("/newQuestion", function (req, res) {
         var msg = req.body;
-        question.concat(msg.question);
-        fakeAnswer.concat(msg.fakeAnswer);
-        trueAnswer.concat(msg.trueAnswer);
-        console.log(msg.question);
+        question = question.concat(msg.question);
+        var NewFakeAnswer = [msg.fakeAnswer]
+        fakeAnswer = fakeAnswer.concat(NewFakeAnswer);
+        trueAnswer = trueAnswer.concat(msg.trueAnswer);
+        console.log("Questions: " + question);
+        console.log("Answer: " + trueAnswer);
+        console.log("Fake Answer: " + fakeAnswer);
     });
 };

@@ -9,7 +9,7 @@
 
       <div class="row">
         <div class="col-lg-12 col-sm-6 text-center mb-4">
-          <h1 style="height: 20px"></h1>
+          <h1 style="height: 10px"></h1>
           <h2>{{ question }}</h2>
         </div>
       </div>
@@ -56,8 +56,7 @@ export default {
           } else {
             console.log("INCORRECT!");
             this.Correct = "";
-            this.Incorrect =
-              "Nope! It was somthing else";
+            this.Incorrect = "Nope! It was somthing else";
           }
         });
     },
