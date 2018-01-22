@@ -1,19 +1,19 @@
 module.exports = function (app) {
     /////////////////////////////trivia requests/////////////////////////////////////
 
-    var questions = [
+    var question = [
         "The beaver is the national emblem of which country?",
         "In which movie did Humphrey Bogart play Charlie Allnut?",
         "What is the name of Batman's butler?",
         "Which US state is nearest to the old Soviet Union?"
     ];
-    var FakeAnswers = [
+    var fakeAnswer = [
         ["USA", "Germany", "France"],
         ["Home Alone", "Ghost Busters", "Saving Private Ryan"],
         ["Huston", "Frank", "Winston"],
         ["Hawaii", "Maine", "Massachusetts"]
     ];
-    var TrueAnswer = [
+    var trueAnswer = [
         "Canada",
         "African Queen",
         "Alfred",
@@ -43,11 +43,11 @@ module.exports = function (app) {
 
     app.get('/qna', function (req, res) {
 
-        var ranAnswers = FakeAnswers[questionIterator].concat(TrueAnswer[questionIterator]);
+        var ranAnswers = fakeAnswer[questionIterator].concat(trueAnswer[questionIterator]);
         ranAnswers = shuffle(ranAnswers);
 
         var response = {
-            "question": questions[questionIterator],
+            "question": question[questionIterator],
             "answers": ranAnswers
         };
         res.send(response)
@@ -56,10 +56,10 @@ module.exports = function (app) {
     app.post("/submission", function (req, res) {
         var msg = req.body.answer;
         console.log("answered: " + msg);
-        if (msg === TrueAnswer[questionIterator]) {
+        if (msg === trueAnswer[questionIterator]) {
             res.send({ message: true });
             questionIterator++;
-            if (questionIterator == (questions.length)) {
+            if (questionIterator == (question.length)) {
                 questionIterator = 0;
             }
         }
@@ -69,17 +69,10 @@ module.exports = function (app) {
     });
 
     app.post("/newQuestion", function (req, res) {
-        var msg = req.body.answer;
-        console.log("answered: " + msg);
-        if (msg === answersData[questionIterator][0]) {
-            res.send({ message: true });
-            questionIterator++;
-            if (questionIterator == (questions.length)) {
-                questionIterator = 0;
-            }
-        }
-        else {
-            res.send({ message: false });
-        }
+        var msg = req.body;
+        question.concat(msg.question);
+        fakeAnswer.concat(msg.fakeAnswer);
+        trueAnswer.concat(msg.trueAnswer);
+        console.log(msg.question);
     });
 };

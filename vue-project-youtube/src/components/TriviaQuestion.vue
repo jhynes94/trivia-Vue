@@ -35,18 +35,6 @@ export default {
   name: "TriviaQuestion",
   data() {
     return {
-      questions: [
-        "The beaver is the national emblem of which country?",
-        "In which movie did Humphrey Bogart play Charlie Allnut?",
-        "What is the name of Batman's butler?",
-        "Which US state is nearest to the old Soviet Union?"
-      ],
-      answersData: [
-        ["Canada", "USA", "Germany", "France"],
-        ["African Queen", "Home Alone", "Ghost Busters", "Saving Private Ryan"],
-        ["Alfred", "Huston", "Frank", "Winston"],
-        ["Alaska", "Hawaii", "Maine", "Massachusetts"]
-      ],
       question: "",
       answers: "",
       Incorrect: "",
