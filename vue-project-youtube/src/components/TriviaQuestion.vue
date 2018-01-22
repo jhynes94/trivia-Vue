@@ -44,7 +44,7 @@ export default {
   methods: {
     selected: function(input) {
       this.$http
-        .post("http://localhost:3000/submission", {answer: input})
+        .post("/submission", {answer: input})
         .then(function(response) {
           console.log(response);
 
@@ -62,7 +62,7 @@ export default {
         });
     },
     getData: function() {
-      this.$http.get("http://localhost:3000/qna").then(function(response) {
+      this.$http.get("/qna").then(function(response) {
         console.log(response);
 
         this.question = response.body.question;

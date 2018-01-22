@@ -97,7 +97,7 @@ export default {
   },
   methods: {
     getData: function(){
-      this.$http.get('http://localhost:3000/quotes')
+      this.$http.get('/quotes')
         .then(function(response){
           console.log(response)
         })
