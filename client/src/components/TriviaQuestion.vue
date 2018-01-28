@@ -1,5 +1,16 @@
 <template>
-<div class="container">
+<div class="col-lg-12">
+  <div id="nav">
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+         <div class="navbar-header">
+            <a class="navbar-brand">Bar trivia v0.1</a>
+            <router-link class="navbar-brand" to="/NewQuestion"><a>New Question</a></router-link>
+            <router-link class="navbar-brand" to="/question"><a>Trivia</a></router-link>
+         </div>
+      </div>
+    </nav>
+  </div>
       <!-- SPACER ROW -->
       <div class="row">
         <div class="col-lg-12">
@@ -30,6 +41,8 @@
 </template>
 
 <script>
+import nav from '@/components/nav'
+
 export default {
   name: "TriviaQuestion",
   data() {

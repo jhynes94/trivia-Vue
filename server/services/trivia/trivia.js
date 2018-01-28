@@ -49,7 +49,8 @@ module.exports = function (app) {
 
         var response = {
             "question": question[questionIterator],
-            "answers": ranAnswers
+            "answers": ranAnswers,
+            "timeToRespond": this.timeLeft
         };
         res.send(response)
     })

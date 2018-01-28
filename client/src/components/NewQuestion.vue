@@ -1,5 +1,16 @@
 <template>
 <div class="container">
+  <div id="nav">
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+         <div class="navbar-header">
+            <a class="navbar-brand">Bar trivia v0.1</a>
+            <router-link class="navbar-brand" to="/NewQuestion"><a>New Question</a></router-link>
+            <router-link class="navbar-brand" to="/question"><a>Trivia</a></router-link>
+         </div>
+      </div>
+    </nav>
+  </div>
     <input type="text" v-model="formQuestion" class="form-control" placeholder="Question" aria-label="Username" aria-describedby="basic-addon1">
     <h1></h1>
     <input type="text" v-model="formAnswer" class="form-control" placeholder="Answer" aria-label="Username" aria-describedby="basic-addon1">

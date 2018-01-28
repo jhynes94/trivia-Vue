@@ -5,7 +5,7 @@ module.exports = function (app) {
     basicModels(app);
 
     //trivia game
-    var triviaModels = require("./trivia.js");
+    var triviaModels = require("./trivia/trivia.js");
     triviaModels(app);
 
     //Call and Responce Basic
