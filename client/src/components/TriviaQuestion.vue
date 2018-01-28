@@ -1,16 +1,7 @@
 <template>
-<div class="col-lg-12">
-  <div id="nav">
-    <nav class="navbar navbar-default navbar-static-top">
-      <div class="container">
-         <div class="navbar-header">
-            <a class="navbar-brand">Bar trivia v0.1</a>
-            <router-link class="navbar-brand" to="/NewQuestion"><a>New Question</a></router-link>
-            <router-link class="navbar-brand" to="/question"><a>Trivia</a></router-link>
-         </div>
-      </div>
-    </nav>
-  </div>
+  <div>
+    <userNav/>
+    <div class="col-lg-12">
       <!-- SPACER ROW -->
       <div class="row">
         <div class="col-lg-12">
@@ -38,10 +29,11 @@
       </div>
 
     </div>
+  </div>
 </template>
 
 <script>
-import nav from '@/components/nav'
+import userNav from "./nav.vue";
 
 export default {
   name: "TriviaQuestion",
@@ -83,6 +75,9 @@ export default {
   },
   created: function() {
     this.getData();
+  },
+  components: {
+    userNav
   }
 };
 </script>
