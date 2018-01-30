@@ -1,6 +1,6 @@
-# personal-webserver
+# trivia-Vue
 
-Personal Web server on Digital Ocean used to test out projects and act as a resume
+Trivia game to practice building Vue Frontend and NodeJS backend
 
 ## To Use
 
@@ -8,13 +8,20 @@ To clone and run this repository you'll need [Git](https://git-scm.com) and [Nod
 
 ```bash
 # Clone this repository
-git clone https://github.com/jhynes94/personal-webserver
+git clone https://github.com/jhynes94/trivia-Vue
 # Go into the repository
 cd personal-webserver
-# Install dependencies
+# Install dependencies for client
+cd client
 npm install
-# Run the app
+# Build for development
+npm run build
+# Install dependencies for server
+cd ../server
+npm install
+# Start backend Server
 npm start
+# Access server at http://localhost:3000/
 ```
 
 ## To Develop on system
@@ -23,18 +30,26 @@ This will cocurrently run a gulp file that refreshes the webpage when changes ar
 
 ```bash
 # Clone this repository
-git clone https://github.com/jhynes94/personal-webserver
+git clone https://github.com/jhynes94/trivia-Vue
 # Go into the repository
 cd personal-webserver
-# Install dependencies
+# Install dependencies for client
+cd client
 npm install
-# Run the app
-npm run dev
+# Start frontend Server
+npm start
+# Install dependencies for server
+cd ../server
+npm install
+# Start backend Server
+npm start
+# Access server at http://localhost:8080/
 ```
 
 ## Todo
 
 - Support Mongo Backend localy
+- Support GraphQL
 
 ## License
 
