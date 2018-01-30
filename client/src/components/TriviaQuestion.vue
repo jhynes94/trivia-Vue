@@ -28,6 +28,9 @@
         {{ Incorrect }}
       </div>
 
+
+      <div>{{producion}}</div>
+
     </div>
   </div>
 </template>
@@ -42,13 +45,15 @@ export default {
       question: "",
       answers: "",
       Incorrect: "",
-      Correct: ""
+      Correct: "",
+      producion: "No data",
+      apiURL: ""
     };
   },
   methods: {
     selected: function(input) {
       this.$http
-        .post("http://localhost:3000/submission", {answer: input})
+        .post(this.apiURL + "/submission", {answer: input})
         .then(function(response) {
           console.log(response);
 
@@ -65,7 +70,7 @@ export default {
         });
     },
     getData: function() {
-      this.$http.get("http://localhost:3000/qna").then(function(response) {
+      this.$http.get(this.apiURL + "/qna").then(function(response) {
         console.log(response);
 
         this.question = response.body.question;
@@ -74,6 +79,10 @@ export default {
     }
   },
   created: function() {
+    this.producion = process.env.NODE_ENV;
+    if(process.env.NODE_ENV === 'development'){
+      this.apiURL = "http://localhost:3000";
+    }
     this.getData();
   },
   components: {
