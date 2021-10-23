@@ -1,6 +1,6 @@
-# trivia-Vue
+# VueJS Trivia Game
 
-Trivia game to practice building Vue Frontend and NodeJS backend
+Trivia game to practice building full stack applications with Vue and Express.
 
 ## To Use
 
